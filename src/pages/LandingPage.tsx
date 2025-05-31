@@ -14,7 +14,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="lp-section">
+      <section className="lp-section" id="calculadoras">
         <h2 className="lp-section-title">Calculadoras</h2>
         <div className="lp-calc-list">
           <a href="/calculator/pricing" className="lp-calc-card">
@@ -22,6 +22,13 @@ export default function LandingPage() {
             <div>
               <strong>Quanto Cobrar?</strong>
               <p>Descubra o valor ideal para seu serviço.</p>
+            </div>
+          </a>
+          <a href="/calculator/packages" className="lp-calc-card">
+            <span className="lp-calc-icon">📦</span>
+            <div>
+              <strong>Pacotes de Serviço</strong>
+              <p>Monte 3 opções de proposta para seu cliente.</p>
             </div>
           </a>
         </div>
