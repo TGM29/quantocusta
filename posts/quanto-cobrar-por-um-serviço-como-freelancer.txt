@@ -1,0 +1,22 @@
+---
+title: Quanto cobrar por um serviço como freelancer?
+date: 31 maio 2025
+author: Equipe FreelaTools
+slug: quanto-cobrar-por-um-servico
+image: https://images.unsplash.com/photo-1551836022-4c4c79ecde72?auto=format&fit=crop&w=800&q=80
+emoji: 💶
+---
+Definir o preço de um serviço como freelancer pode ser confuso. Cobrar muito e perder o cliente? Cobrar pouco e sair no prejuízo? A solução é simples: usar uma lógica clara e baseada em tempo.
+
+## Como calcular quanto cobrar?
+- Defina quanto você quer ganhar por hora.
+- Estime quantas horas vai gastar no serviço (incluindo briefing, reuniões e revisões).
+- Multiplique as duas coisas — e pronto: você tem o valor justo do serviço.
+
+## Exemplo prático
+Você quer ganhar R$80/h e vai gastar 10 horas em um projeto?  
+80 × 10 = **R$800**. Esse é o valor base. Você ainda pode ajustar de acordo com a complexidade, prazo e valor percebido.
+
+> Dica: Sempre apresente o preço final com clareza, e se possível, em forma de pacote com entregas bem definidas.
+
+Use nossa [calculadora de serviço](/calculator/servico) para descobrir agora quanto cobrar de forma rápida e profissional.

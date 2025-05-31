@@ -30,11 +30,28 @@ const posts: PostMeta[] = Object.values(postFiles)
 
 // Função simples para converter links markdown para HTML <a>
 function renderMarkdownLinks(text: string) {
-  // [texto](url)
-  return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_unused, label, url) => {
+  let html = text;
+  // Links
+  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_unused, label, url) => {
     const isExternal = url.startsWith('http');
     return `<a href="${url}"${isExternal ? ' target=\"_blank\" rel=\"noopener\"' : ''} style=\"color:#2563eb;font-weight:600\"'>${label}</a>`;
   });
+  // Imagens ![alt](url)
+  html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img alt="$1" src="$2" style="max-width:100%;border-radius:10px;margin:1.2rem 0;box-shadow:0 2px 16px rgba(37,99,235,0.10);display:block;">');
+  // Títulos ##
+  html = html.replace(/^## (.*)$/gm, '<h2 style="color:#2563eb;font-size:1.25rem;margin:1.5rem 0 0.7rem 0;">$1</h2>');
+  // Listas -
+  html = html.replace(/^- (.*)$/gm, '<li>$1</li>');
+  html = html.replace(/(<li>.*<\/li>)/gs, '<ul>$1</ul>');
+  // Negrito **
+  html = html.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+  // Itálico *
+  html = html.replace(/\*([^*]+)\*/g, '<i>$1</i>');
+  // Blockquote >
+  html = html.replace(/^> (.*)$/gm, '<blockquote style="background:#e0e7ff;padding:1rem;border-radius:8px;margin:1.5rem 0;color:#222">$1</blockquote>');
+  // Parágrafos
+  html = html.replace(/\n{2,}/g, '<br/><br/>');
+  return html;
 }
 
 export default function PostPage() {
