@@ -1,51 +1,57 @@
 import './LandingPage.css';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
-// Função utilitária para parsear frontmatter e conteúdo
-function parsePost(txt: string) {
+interface PostMeta {
+  title: string;
+  date: string;
+  author: string;
+  slug: string;
+  image: string;
+  content: string;
+}
+
+function parsePost(txt: string): PostMeta | null {
   const match = txt.match(/^---([\s\S]*?)---([\s\S]*)$/);
   if (!match) return null;
-  const meta = {} as any;
-  match[1].trim().split('\n').forEach(line => {
+  const meta: any = {};
+  match[1].trim().split('\n').forEach((line: string) => {
     const [key, ...rest] = line.split(':');
     meta[key.trim()] = rest.join(':').trim();
   });
-  return { ...meta, content: match[2].trim() };
+  return { ...meta, content: match[2].trim() } as PostMeta;
 }
 
-// Simulação de import dinâmica dos arquivos .txt (substitua por import real em ambiente Node/SSR)
-const postFiles = [
-  require('../../posts/como-cobrar-mais-com-pacotes.txt?raw'),
-  require('../../posts/como-tirar-ferias-sendo-freelancer.txt?raw'),
-];
-const posts = postFiles.map(parsePost).filter(Boolean);
+// Importa todos os posts .txt de forma dinâmica
+const postFiles = import.meta.glob('../../posts/*.txt', { as: 'raw', eager: true });
+const posts: PostMeta[] = Object.values(postFiles)
+  .map((content) => parsePost(content as string))
+  .filter(Boolean) as PostMeta[];
 
 export default function PostPage() {
   const { slug } = useParams();
   const post = posts.find(p => p.slug === slug) || posts[0];
-  const relatedPosts = posts.filter(p => p.slug !== post.slug);
+  const others = posts.filter(p => p.slug !== post.slug);
+
   return (
-    <div className="lp-root" style={{background:'#232323',minHeight:'100vh',paddingBottom:0}}>
-      <div className="post-layout">
-        <main className="post-main">
-          <div className="post-meta">
-            <span className="post-date">{post.date}</span> · <span className="post-author">{post.author}</span>
-          </div>
-          <h1 className="post-title">{post.title}</h1>
-          <img src={post.image} alt="Capa do post" className="post-image" />
-          <article className="post-content" dangerouslySetInnerHTML={{__html: markdownToHtml(post.content)}} />
-        </main>
-        <aside className="post-sidebar">
-          <h3 className="sidebar-title">Leia também</h3>
-          <div className="sidebar-list">
-            {relatedPosts.map(rp => (
-              <a key={rp.slug} href={`/content/${rp.slug}`} className="sidebar-post-card">
-                <div className="sidebar-post-title">{rp.title}</div>
-              </a>
-            ))}
-          </div>
-        </aside>
-      </div>
+    <div className="post-layout">
+      <main className="post-main">
+        <h1 className="post-title">{post.title}</h1>
+        <div className="post-meta">{post.date} • {post.author}</div>
+        {post.image && <img src={post.image} alt="" className="post-image" />}
+        <div className="post-content" style={{ whiteSpace: 'pre-line' }}>
+          {post.content}
+        </div>
+      </main>
+      <aside className="post-sidebar">
+        <h3 className="sidebar-title">Outros posts</h3>
+        <ul className="sidebar-list">
+          {others.map(p => (
+            <li key={p.slug}>
+              <Link to={`/content/${p.slug}`}>{p.title}</Link>
+            </li>
+          ))}
+        </ul>
+      </aside>
     </div>
   );
 }

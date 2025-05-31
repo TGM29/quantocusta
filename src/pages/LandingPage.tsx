@@ -24,12 +24,11 @@ function parsePost(txt: string): PostMeta | null {
   return { ...meta, content: match[2].trim() } as PostMeta;
 }
 
-// Importa todos os posts .txt
-const postFiles: string[] = [
-  require('../../posts/como-cobrar-mais-com-pacotes.txt?raw'),
-  require('../../posts/como-tirar-ferias-sendo-freelancer.txt?raw'),
-];
-const posts: PostMeta[] = postFiles.map(parsePost).filter((p): p is PostMeta => !!p);
+// Importa todos os posts .txt de forma dinâmica
+const postFiles = import.meta.glob('../../posts/*.txt', { as: 'raw', eager: true });
+const posts: PostMeta[] = Object.values(postFiles)
+  .map((content) => parsePost(content as string))
+  .filter(Boolean) as PostMeta[];
 
 export default function LandingPage() {
   return (
@@ -39,7 +38,7 @@ export default function LandingPage() {
           <img src={logo} alt="FreelaTools Logo" className="lp-logo minimal-logo" />
           <h1 className="lp-hero-title">O portal dos freelancers</h1>
           <p className="lp-hero-desc">Ferramentas para facilitar sua vida e valorizar seu trabalho.</p>
-          <a href="/calculator/pricing" className="lp-hero-btn">Acessar Calculadora</a>
+          <a href="/#calculadoras" className="lp-hero-btn">Acessar Ferramentas</a>
         </div>
       </section>
 
