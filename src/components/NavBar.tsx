@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../assets/freelatools-logo.png';
+// import logo from '../assets/freelatools-logo.png';
 import './NavBar.css';
 
 export default function NavBar() {
@@ -8,7 +8,7 @@ export default function NavBar() {
     <nav className="navbar">
       <div className="navbar-logo">
         <Link to="/">
-          <img src={logo} alt="FreelaTools Logo" />
+          <img src="/favicon.png" alt="FreelaTools Logo" />
         </Link>
         <span className="navbar-title">FreelaTools</span>
       </div>
