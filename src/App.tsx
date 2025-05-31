@@ -22,6 +22,28 @@ const PROFISSOES = [
   { nome: 'Outro', faixa: '', media: 0 },
 ];
 
+function SidePanel() {
+  return (
+    <aside className="side-panel">
+      <h2>Dicas para calcular seu serviço</h2>
+      <ul>
+        <li>Considere sempre o tempo real que você vai gastar, incluindo reuniões e revisões.</li>
+        <li>Pesquise o valor médio do mercado para sua área.</li>
+        <li>Não esqueça de incluir custos fixos e variáveis no seu cálculo.</li>
+        <li>Se possível, ofereça um valor fechado para o cliente, mas saiba justificar seu preço por hora.</li>
+        <li>Valorize seu tempo e sua experiência!</li>
+      </ul>
+      <h2>Como funciona?</h2>
+      <ul>
+        <li>Escolha o tipo de serviço e veja a média de preço/hora do mercado.</li>
+        <li>Personalize quanto quer cobrar por hora.</li>
+        <li>Informe a estimativa de horas para o serviço.</li>
+        <li>Veja o valor total sugerido para cobrar do cliente.</li>
+      </ul>
+    </aside>
+  )
+}
+
 function App() {
   const [profissao, setProfissao] = useState('')
   const [valorHora, setValorHora] = useState('')
@@ -58,62 +80,70 @@ function App() {
   }
 
   return (
-    <div className="container">
-      <h1 style={{ color: '#222' }}>Calculadora de Serviço</h1>
-      <form onSubmit={calcular} className="form">
-        <label>
-          1. Selecione o tipo de serviço
-          <select
-            value={profissao}
-            onChange={handleProfissaoChange}
-            style={{ background: '#fff', color: '#222', border: '1px solid #d1d5db', borderRadius: 6, padding: '0.5rem 0.7rem', fontSize: '1rem', marginTop: 4 }}
-          >
-            <option value="">Selecione...</option>
-            {PROFISSOES.map(p => (
-              <option key={p.nome} value={p.nome}>{p.nome}</option>
-            ))}
-          </select>
-        </label>
-        {profissaoSelecionada && profissaoSelecionada.nome !== 'Outro' && (
-          <div className="faixa-mercado">
-            <span>Média de mercado: </span>
-            <strong style={{ color: '#2563eb' }}>R$ {profissaoSelecionada.faixa} / hora</strong>
+    <div className="desktop-wrapper">
+      <div className="container">
+        <h1 style={{ color: '#222' }}>Calculadora de Serviço</h1>
+        <form onSubmit={calcular} className="form">
+          <label>
+            1. Selecione o tipo de serviço
+            <select
+              value={profissao}
+              onChange={handleProfissaoChange}
+              style={{ background: '#fff', color: '#222', border: '1px solid #d1d5db', borderRadius: 6, padding: '0.5rem 0.7rem', fontSize: '1rem', marginTop: 4 }}
+            >
+              <option value="">Selecione...</option>
+              {PROFISSOES.map(p => (
+                <option key={p.nome} value={p.nome}>{p.nome}</option>
+              ))}
+            </select>
+          </label>
+          {profissaoSelecionada && profissaoSelecionada.nome !== 'Outro' && (
+            <div className="faixa-mercado">
+              <span>Média de mercado: </span>
+              <strong style={{ color: '#2563eb' }}>R$ {profissaoSelecionada.faixa} / hora</strong>
+            </div>
+          )}
+          <label>
+            2. Defina quanto quer cobrar por hora
+            <input
+              type="number"
+              min="1"
+              value={valorHora}
+              onChange={e => setValorHora(e.target.value)}
+              placeholder="Ex: 80"
+              style={{ color: '#222' }}
+            />
+          </label>
+          <label>
+            3. Quantas horas estima gastar nesse serviço?
+            <input
+              type="number"
+              min="1"
+              value={horasServico}
+              onChange={e => setHorasServico(e.target.value)}
+              placeholder="Ex: 10"
+              style={{ color: '#222' }}
+            />
+          </label>
+          <button type="submit">Calcular</button>
+        </form>
+        {erro && <p className="erro">{erro}</p>}
+        {resultado !== null && !erro && (
+          <div className="resultado">
+            <h2 style={{ color: '#222' }}>Resultado</h2>
+            <p style={{ color: '#222' }}>
+              Valor total sugerido para o serviço: <br />
+              <span className="valor-hora">R$ {resultado.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+            </p>
           </div>
         )}
-        <label>
-          2. Defina quanto quer cobrar por hora
-          <input
-            type="number"
-            min="1"
-            value={valorHora}
-            onChange={e => setValorHora(e.target.value)}
-            placeholder="Ex: 80"
-            style={{ color: '#222' }}
-          />
-        </label>
-        <label>
-          3. Quantas horas estima gastar nesse serviço?
-          <input
-            type="number"
-            min="1"
-            value={horasServico}
-            onChange={e => setHorasServico(e.target.value)}
-            placeholder="Ex: 10"
-            style={{ color: '#222' }}
-          />
-        </label>
-        <button type="submit">Calcular</button>
-      </form>
-      {erro && <p className="erro">{erro}</p>}
-      {resultado !== null && !erro && (
-        <div className="resultado">
-          <h2 style={{ color: '#222' }}>Resultado</h2>
-          <p style={{ color: '#222' }}>
-            Valor total sugerido para o serviço: <br />
-            <span className="valor-hora">R$ {resultado.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-          </p>
-        </div>
-      )}
+      </div>
+      {/* Painel lateral só aparece em telas grandes */}
+      <div className="side-panel" style={{ display: 'none' }}>
+        {/* fallback para mobile, será sobrescrito pelo CSS em desktop */}
+      </div>
+      {/* Renderiza o painel lateral apenas em desktop */}
+      <SidePanel />
     </div>
   )
 }
