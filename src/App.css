@@ -135,10 +135,12 @@
   font-weight: 500;
   color: #222;
   gap: 0.3rem;
+  width: 100%;
 }
 
 .form input, .form select {
   width: 100%;
+  box-sizing: border-box;
   padding: 0.5rem 0.7rem;
   border: 1.5px solid #222;
   border-radius: 6px;
@@ -198,4 +200,11 @@ button[type="submit"]:hover {
   color: #ef4444;
   margin-top: 0.7rem;
   font-weight: 500;
+}
+
+@media (max-width: 500px) {
+  .container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
 }
