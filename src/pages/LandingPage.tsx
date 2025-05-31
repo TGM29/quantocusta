@@ -12,6 +12,7 @@ interface PostMeta {
   image: string;
   content: string;
   emoji?: string;
+  description?: string;
 }
 
 // Função utilitária para parsear frontmatter e conteúdo
@@ -32,8 +33,8 @@ const posts: PostMeta[] = Object.values(postFiles)
   .map((content) => parsePost(content as string))
   .filter(Boolean) as PostMeta[];
 
-const logoUrl = 'https://9f676c96cf9feb9650ceb18cb3a2f6b6.r2.cloudflarestorage.com/images/freelatools-logo.png';
-const heroCharacterUrl = 'https://9f676c96cf9feb9650ceb18cb3a2f6b6.r2.cloudflarestorage.com/images/hero-character.png';
+const logoUrl = 'https://pub-019a03b0b6e942f6a10a4bd626b74e2b.r2.dev/images/freelatools-logo.png';
+const heroCharacterUrl = 'https://pub-019a03b0b6e942f6a10a4bd626b74e2b.r2.dev/images/hero-character.png';
 
 export default function LandingPage() {
   return (
@@ -72,15 +73,18 @@ export default function LandingPage() {
       <section className="lp-section">
         <h2 className="lp-section-title">Conteúdo</h2>
         <div className="lp-content-list">
-          {posts.map((post) => (
-            <a key={post.slug} href={`/content/${post.slug}`} className="lp-content-card">
-              <span className="lp-calc-icon" style={{fontSize:'2.2rem'}}>{post.emoji || '📝'}</span>
-              <div>
-                <strong>{post.title}</strong>
-                <p>{post.content.split('\n')[0]}</p>
-              </div>
-            </a>
-          ))}
+          {posts.map((post) => {
+            const desc = post.description || 'Confira o post completo!';
+            return (
+              <a key={post.slug} href={`/content/${post.slug}`} className="lp-content-card">
+                <span className="lp-calc-icon" style={{fontSize:'2.2rem'}}>{post.emoji || '📝'}</span>
+                <div>
+                  <strong>{post.title}</strong>
+                  <p>{desc}</p>
+                </div>
+              </a>
+            );
+          })}
         </div>
       </section>
 
