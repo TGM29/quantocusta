@@ -13,7 +13,7 @@ export default function LandingPage() {
           <a href="/calculator/pricing" className="lp-hero-btn">Acessar Calculadora</a>
         </div>
         <div className="lp-hero-img">
-          <img src="/freelancer.png" alt="Freelancer Hero" />
+          <img src="/freelancer.svg" alt="Freelancer Hero" />
         </div>
       </section>
 
