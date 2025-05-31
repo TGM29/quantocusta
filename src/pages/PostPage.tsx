@@ -8,6 +8,7 @@ interface PostMeta {
   slug: string;
   image: string;
   content: string;
+  emoji?: string;
 }
 
 function parsePost(txt: string): PostMeta | null {
@@ -30,10 +31,9 @@ const posts: PostMeta[] = Object.values(postFiles)
 // Função simples para converter links markdown para HTML <a>
 function renderMarkdownLinks(text: string) {
   // [texto](url)
-  return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, label, url) => {
-    // Links internos: usar <a> normal, externos: target _blank
+  return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_unused, label, url) => {
     const isExternal = url.startsWith('http');
-    return `<a href="${url}"${isExternal ? ' target="_blank" rel="noopener"' : ''} style="color:#2563eb;font-weight:600">${label}</a>`;
+    return `<a href="${url}"${isExternal ? ' target=\"_blank\" rel=\"noopener\"' : ''} style=\"color:#2563eb;font-weight:600\"'>${label}</a>`;
   });
 }
 
@@ -44,8 +44,11 @@ export default function PostPage() {
   return (
     <div className="post-layout">
       <main className="post-main">
-        <h1 className="post-title">{post.title}</h1>
-        <div className="post-meta">{post.date} • {post.author}</div>
+        <div style={{textAlign:'center', marginBottom:24}}>
+          <span style={{fontSize:'2.5rem', marginRight:10}}>{post.emoji || '📝'}</span>
+          <h1 className="post-title" style={{display:'inline', verticalAlign:'middle'}}>{post.title}</h1>
+        </div>
+        <div className="post-meta" style={{textAlign:'center'}}>{post.date} • {post.author}</div>
         {post.image && <img src={post.image} alt="" className="post-image" />}
         <div
           className="post-content"
@@ -54,11 +57,12 @@ export default function PostPage() {
         />
       </main>
       <aside className="post-sidebar post-sidebar-block">
-        <div className="sidebar-block">
-          <h3 className="sidebar-title">Outros posts</h3>
-          <ul className="sidebar-list">
+        <div className="sidebar-block" style={{textAlign:'center'}}>
+          <h3 className="sidebar-title" style={{textAlign:'center'}}>Outros posts</h3>
+          <ul className="sidebar-list" style={{alignItems:'center', display:'flex', flexDirection:'column', gap:'1.1rem'}}>
             {posts.map(p => (
-              <li key={p.slug}>
+              <li key={p.slug} style={{display:'flex', alignItems:'center', gap:8}}>
+                <span style={{fontSize:'1.3rem', marginRight:6}}>{p.emoji || '📝'}</span>
                 <Link to={`/content/${p.slug}`}>{p.title}</Link>
               </li>
             ))}

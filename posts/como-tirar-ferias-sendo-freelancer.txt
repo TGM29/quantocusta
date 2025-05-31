@@ -4,6 +4,7 @@ date: 31 maio 2025
 author: Equipe FreelaTools
 slug: como-tirar-ferias-sendo-freelancer
 image: https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80
+emoji : 🏖️
 ---
 Você sente que não pode parar nunca? Que se tirar férias vai perder clientes ou dinheiro? Saiba que é possível descansar mesmo sendo freelancer — e o melhor: sem culpa e sem prejuízo.
 

@@ -10,6 +10,7 @@ interface PostMeta {
   slug: string;
   image: string;
   content: string;
+  emoji?: string;
 }
 
 // Função utilitária para parsear frontmatter e conteúdo
@@ -67,7 +68,7 @@ export default function LandingPage() {
         <div className="lp-content-list">
           {posts.map((post) => (
             <a key={post.slug} href={`/content/${post.slug}`} className="lp-content-card">
-              <span className="lp-calc-icon">📝</span>
+              <span className="lp-calc-icon" style={{fontSize:'2.2rem'}}>{post.emoji || '📝'}</span>
               <div>
                 <strong>{post.title}</strong>
                 <p>{post.content.split('\n')[0]}</p>

@@ -4,6 +4,7 @@ date: 31 maio 2025
 author: Equipe FreelaTools
 slug: como-calcular-preco-hora-freelancer
 image: https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80
+emoji: ⏲️
 ---
 Você está cobrando certo pelo seu trabalho? Descubra como definir seu preço por hora como freelancer e evite trabalhar muito ganhando pouco.
 

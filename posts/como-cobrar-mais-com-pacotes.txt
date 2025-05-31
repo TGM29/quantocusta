@@ -4,6 +4,7 @@ date: 30 maio 2025
 author: Equipe FreelaTools
 slug: como-cobrar-mais-com-pacotes
 image: https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80
+emoji: 📦
 ---
 Você sente que está perdendo clientes por não saber apresentar opções? Descubra como criar pacotes de serviço que aumentam seu ticket médio e facilitam a decisão do cliente!
 
