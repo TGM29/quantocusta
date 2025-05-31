@@ -1,19 +1,16 @@
 import './LandingPage.css';
-// import logo from '../assets/freelatools-logo.png';
+import logo from '../assets/freelatools-logo.png';
 // import heroImg from '../assets/freelatools-logo.png';
 
 export default function LandingPage() {
   return (
     <div className="lp-root">
-      <section className="lp-hero">
-        <div className="lp-hero-content">
-          <img src={process.env.PUBLIC_URL ? process.env.PUBLIC_URL + '/favicon.svg' : '/favicon.svg'} alt="FreelaTools Logo" className="lp-logo" style={{ marginBottom: 24 }} />
+      <section className="lp-hero minimal-hero">
+        <div className="lp-hero-content minimal-hero-content">
+          <img src={logo} alt="FreelaTools Logo" className="lp-logo minimal-logo" />
           <h1 className="lp-hero-title">O portal dos freelancers</h1>
           <p className="lp-hero-desc">Ferramentas para facilitar sua vida e valorizar seu trabalho.</p>
           <a href="/calculator/pricing" className="lp-hero-btn">Acessar Calculadora</a>
-        </div>
-        <div className="lp-hero-img">
-          <img src={process.env.PUBLIC_URL ? process.env.PUBLIC_URL + '/freelancer.svg' : '/freelancer.svg'} alt="Freelancer Hero" />
         </div>
       </section>
 
