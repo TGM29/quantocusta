@@ -33,8 +33,8 @@ const posts: PostMeta[] = Object.values(postFiles)
   .map((content) => parsePost(content as string))
   .filter(Boolean) as PostMeta[];
 
-const logoUrl = 'https://pub-019a03b0b6e942f6a10a4bd626b74e2b.r2.dev/images/freelatools-logo.png';
-const heroCharacterUrl = 'https://pub-019a03b0b6e942f6a10a4bd626b74e2b.r2.dev/images/hero-character.png';
+const logoUrl = 'https://pub-019a03b0b6e942f6a10a4bd626b74e2b.r2.dev/favicon.png';
+const heroCharacterUrl = 'https://pub-019a03b0b6e942f6a10a4bd626b74e2b.r2.dev/freelancer.png';
 
 export default function LandingPage() {
   return (
