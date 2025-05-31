@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import LandingPage from './pages/LandingPage';
 import PricingCalculatorPage from './pages/PricingCalculatorPage';
-import ContentPage from './pages/ContentPage';
+// import ContentPage from './pages/ContentPage';
 import PackageCalculatorPage from './pages/PackageCalculatorPage';
 import PostPage from './pages/PostPage';
 

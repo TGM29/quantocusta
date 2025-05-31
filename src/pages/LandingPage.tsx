@@ -37,13 +37,13 @@ export default function LandingPage() {
       <section className="lp-section">
         <h2 className="lp-section-title">Conteúdo</h2>
         <div className="lp-content-list">
-          <div className="lp-content-card">
+          <a href="/content/como-cobrar-mais-com-pacotes" className="lp-content-card">
             <span className="lp-calc-icon">📝</span>
             <div>
-              <strong>Em breve</strong>
-              <p>Posts e dicas para freelancers.</p>
+              <strong>Como cobrar mais oferecendo pacotes de serviço</strong>
+              <p>Dicas práticas para aumentar seu ticket médio e facilitar a decisão do cliente.</p>
             </div>
-          </div>
+          </a>
         </div>
       </section>
 
