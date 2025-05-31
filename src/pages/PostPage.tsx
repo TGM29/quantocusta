@@ -1,40 +1,29 @@
 import './LandingPage.css';
+import { useParams } from 'react-router-dom';
 
-const posts = [
-  {
-    slug: 'como-cobrar-mais-com-pacotes',
-    title: 'Como cobrar mais oferecendo pacotes de serviço',
-    date: '30 maio 2025',
-    author: 'Equipe FreelaTools',
-    image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80',
-    content: (
-      <>
-        <p><b>Você sente que está perdendo clientes por não saber apresentar opções?</b> Descubra como criar pacotes de serviço que aumentam seu ticket médio e facilitam a decisão do cliente!</p>
-        <h2 style={{color:'#2563eb'}}>Por que oferecer pacotes?</h2>
-        <ul>
-          <li>Ajuda o cliente a comparar e enxergar valor.</li>
-          <li>Facilita a negociação e reduz "choros" por desconto.</li>
-          <li>Permite vender bônus e diferenciais no pacote premium.</li>
-        </ul>
-        <h2 style={{color:'#2563eb'}}>Exemplo prático</h2>
-        <p>Monte três opções: <b>Básico</b> (essencial), <b>Intermediário</b> (valor padrão), <b>Premium</b> (com bônus e entrega rápida). Assim, o cliente sente que está escolhendo, não apenas aceitando um preço.</p>
-        <blockquote style={{background:'#e0e7ff',padding:'1rem',borderRadius:8,margin:'1.5rem 0',color:'#222'}}>Dica: A maioria dos clientes escolhe o intermediário, mas muitos vão para o premium se o valor percebido for claro!</blockquote>
-        <p>Use nossa <a href="/calculator/packages" style={{color:'#2563eb',fontWeight:600}}>calculadora de pacotes</a> para gerar suas opções em segundos.</p>
-      </>
-    )
-  }
-];
+// Função utilitária para parsear frontmatter e conteúdo
+function parsePost(txt: string) {
+  const match = txt.match(/^---([\s\S]*?)---([\s\S]*)$/);
+  if (!match) return null;
+  const meta = {} as any;
+  match[1].trim().split('\n').forEach(line => {
+    const [key, ...rest] = line.split(':');
+    meta[key.trim()] = rest.join(':').trim();
+  });
+  return { ...meta, content: match[2].trim() };
+}
 
-const relatedPosts = [
-  {
-    slug: 'como-cobrar-mais-com-pacotes',
-    title: 'Como cobrar mais oferecendo pacotes de serviço',
-  },
-  // Adicione mais posts aqui futuramente
+// Simulação de import dinâmica dos arquivos .txt (substitua por import real em ambiente Node/SSR)
+const postFiles = [
+  require('../../posts/como-cobrar-mais-com-pacotes.txt?raw'),
+  require('../../posts/como-tirar-ferias-sendo-freelancer.txt?raw'),
 ];
+const posts = postFiles.map(parsePost).filter(Boolean);
 
 export default function PostPage() {
-  const post = posts[0];
+  const { slug } = useParams();
+  const post = posts.find(p => p.slug === slug) || posts[0];
+  const relatedPosts = posts.filter(p => p.slug !== post.slug);
   return (
     <div className="lp-root" style={{background:'#232323',minHeight:'100vh',paddingBottom:0}}>
       <div className="post-layout">
@@ -44,7 +33,7 @@ export default function PostPage() {
           </div>
           <h1 className="post-title">{post.title}</h1>
           <img src={post.image} alt="Capa do post" className="post-image" />
-          <article className="post-content">{post.content}</article>
+          <article className="post-content" dangerouslySetInnerHTML={{__html: markdownToHtml(post.content)}} />
         </main>
         <aside className="post-sidebar">
           <h3 className="sidebar-title">Leia também</h3>
@@ -59,4 +48,18 @@ export default function PostPage() {
       </div>
     </div>
   );
+}
+
+// Função simples para converter markdown básico para HTML
+function markdownToHtml(md: string) {
+  return md
+    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+    .replace(/\*\*(.*?)\*\*/gim, '<b>$1</b>')
+    .replace(/\*([^*]+)\*/gim, '<i>$1</i>')
+    .replace(/\n\n/g, '<br/><br/>')
+    .replace(/\n/g, '<br/>')
+    .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" style="color:#2563eb;font-weight:600">$1</a>')
+    .replace(/^> (.*$)/gim, '<blockquote style="background:#e0e7ff;padding:1rem;border-radius:8px;margin:1.5rem 0;color:#222">$1</blockquote>');
 }
