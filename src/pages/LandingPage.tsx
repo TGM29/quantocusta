@@ -1,4 +1,3 @@
-import React from 'react';
 import './LandingPage.css';
 import logo from '../assets/freelatools-logo.png';
 
