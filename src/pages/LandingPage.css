@@ -27,7 +27,7 @@
   margin-bottom: 2.5rem;
   color: #fff;
   gap: 2.5rem;
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 .lp-hero-content {
   flex: 1;
@@ -35,7 +35,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  min-width: 260px;
+  min-width: 0;
 }
 .lp-hero-title {
   font-size: 2.7rem;
@@ -69,7 +69,7 @@
 .lp-hero-img {
   flex: 1;
   max-width: 350px;
-  min-width: 180px;
+  min-width: 120px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -131,7 +131,7 @@
   .lp-hero {
     flex-direction: column;
     align-items: center;
-    padding: 2.2rem 1rem 2.2rem 1rem;
+    padding: 2.2rem 2vw 2.2rem 2vw;
     border-radius: 0 0 24px 24px;
     gap: 1.5rem;
     width: 100vw;
@@ -141,17 +141,20 @@
   .lp-hero-content {
     align-items: center;
     text-align: center;
-  }
-  .lp-hero-title {
-    font-size: 2rem;
-  }
-  .lp-hero-img {
-    max-width: 220px;
+    min-width: 0;
+    width: 100%;
   }
   .lp-section {
-    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+    padding: 1.2rem 2vw 1.2rem 2vw;
+    width: 100vw;
+    box-sizing: border-box;
+  }
+  .lp-hero-img {
+    max-width: 90vw;
+    min-width: 0;
   }
   .lp-hero-img img {
     max-width: 90vw;
+    min-width: 0;
   }
 }

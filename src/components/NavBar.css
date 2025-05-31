@@ -69,15 +69,20 @@
 @media (max-width: 700px) {
   .navbar {
     flex-direction: column;
-    align-items: flex-start;
-    padding: 0.7rem 1vw;
+    align-items: stretch;
+    padding: 0.7rem 2vw;
     min-height: unset;
     gap: 0.5rem;
+    width: 100vw;
+    box-sizing: border-box;
   }
   .navbar-logo {
     margin-bottom: 0.3rem;
+    justify-content: flex-start;
   }
   .navbar-links {
     gap: 1.2rem;
+    justify-content: flex-start;
+    width: 100%;
   }
 }
