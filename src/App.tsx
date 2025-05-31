@@ -22,10 +22,10 @@ const PROFISSOES = [
   { nome: 'Outro', faixa: '', media: 0 },
 ];
 
-function SidePanel() {
+function DicasContent() {
   return (
-    <aside className="side-panel">
-      <h2>Dicas para calcular seu serviço</h2>
+    <>
+      <h2 style={{ color: '#2563eb', fontSize: '1.4rem', marginBottom: '0.7rem' }}>Dicas para calcular seu serviço</h2>
       <ul>
         <li>Considere sempre o tempo real que você vai gastar, incluindo reuniões e revisões.</li>
         <li>Pesquise o valor médio do mercado para sua área.</li>
@@ -33,14 +33,30 @@ function SidePanel() {
         <li>Se possível, ofereça um valor fechado para o cliente, mas saiba justificar seu preço por hora.</li>
         <li>Valorize seu tempo e sua experiência!</li>
       </ul>
-      <h2>Como funciona?</h2>
+      <h2 style={{ color: '#2563eb', fontSize: '1.4rem', margin: '1.5rem 0 0.7rem 0' }}>Como funciona?</h2>
       <ul>
         <li>Escolha o tipo de serviço e veja a média de preço/hora do mercado.</li>
         <li>Personalize quanto quer cobrar por hora.</li>
         <li>Informe a estimativa de horas para o serviço.</li>
         <li>Veja o valor total sugerido para cobrar do cliente.</li>
       </ul>
+    </>
+  )
+}
+
+function SidePanel() {
+  return (
+    <aside className="side-panel">
+      <DicasContent />
     </aside>
+  )
+}
+
+function MobilePanel() {
+  return (
+    <div className="mobile-panel">
+      <DicasContent />
+    </div>
   )
 }
 
@@ -137,12 +153,10 @@ function App() {
             </p>
           </div>
         )}
+        {/* Painel de dicas para mobile */}
+        <MobilePanel />
       </div>
       {/* Painel lateral só aparece em telas grandes */}
-      <div className="side-panel" style={{ display: 'none' }}>
-        {/* fallback para mobile, será sobrescrito pelo CSS em desktop */}
-      </div>
-      {/* Renderiza o painel lateral apenas em desktop */}
       <SidePanel />
     </div>
   )
