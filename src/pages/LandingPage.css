@@ -362,3 +362,19 @@
   gap: 2.2rem 2.2rem;
   justify-content: flex-start;
 }
+
+.lp-hero-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 2.5rem;
+}
+@media (max-width: 900px) {
+  .lp-hero-flex {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}

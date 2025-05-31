@@ -33,20 +33,20 @@ const posts: PostMeta[] = Object.values(postFiles)
   .map((content) => parsePost(content as string))
   .filter(Boolean) as PostMeta[];
 
-const logoUrl = 'https://pub-019a03b0b6e942f6a10a4bd626b74e2b.r2.dev/favicon.png';
 const heroCharacterUrl = 'https://pub-019a03b0b6e942f6a10a4bd626b74e2b.r2.dev/freelancer.png';
 
 export default function LandingPage() {
   return (
     <div className="lp-root">
       <section className="lp-hero minimal-hero">
-        <div className="lp-hero-content minimal-hero-content">
-          <img src={logoUrl} alt="FreelaTools Logo" className="lp-logo minimal-logo" />
-          <h1 className="lp-hero-title">O portal dos freelancers</h1>
-          <p className="lp-hero-desc">Ferramentas para facilitar sua vida e valorizar seu trabalho.</p>
-        </div>
-        <div className="lp-hero-img" style={{display:'flex',justifyContent:'center',alignItems:'center',width:'100%',marginTop:24}}>
-          <img src={heroCharacterUrl} alt="Personagem FreelaTools" style={{maxWidth:320, width:'100%', borderRadius:24, boxShadow:'0 4px 32px rgba(37,99,235,0.13)'}} />
+        <div className="lp-hero-flex">
+          <div className="lp-hero-content minimal-hero-content" style={{alignItems:'flex-start',textAlign:'left'}}>
+            <h1 className="lp-hero-title">O portal dos freelancers</h1>
+            <p className="lp-hero-desc">Ferramentas para facilitar sua vida e valorizar seu trabalho.</p>
+          </div>
+          <div className="lp-hero-img" style={{display:'flex',justifyContent:'flex-end',alignItems:'center',width:'50%',marginTop:0}}>
+            <img src={heroCharacterUrl} alt="Personagem FreelaTools" style={{maxWidth:320, width:'100%', borderRadius:24, boxShadow:'0 4px 32px rgba(37,99,235,0.13)'}} />
+          </div>
         </div>
       </section>
 
