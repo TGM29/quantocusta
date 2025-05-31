@@ -1,0 +1,130 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.container {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-weight: 500;
+  color: #222;
+  gap: 0.3rem;
+}
+
+.form input, .form select {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+  border: 1.5px solid #222;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-top: 0.2rem;
+  background: #f9fafb;
+  color: #222;
+  transition: border 0.2s;
+}
+
+.form input:focus, .form select:focus {
+  border: 2px solid #2563eb;
+  outline: none;
+}
+
+button[type="submit"] {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+button[type="submit"]:hover {
+  background: #1746a0;
+}
+
+.faixa-mercado {
+  margin-top: -0.7rem;
+  margin-bottom: 0.7rem;
+  font-size: 0.98rem;
+  color: #222;
+  background: #e0e7ff;
+  border-radius: 5px;
+  padding: 0.3rem 0.7rem;
+  display: inline-block;
+}
+
+.resultado {
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 1.2rem 0.7rem;
+  margin-top: 1.2rem;
+  color: #222;
+}
+.valor-hora {
+  font-size: 1.5rem;
+  color: #22c55e;
+  margin-top: 0.7rem;
+  font-weight: bold;
+}
+.erro {
+  color: #ef4444;
+  margin-top: 0.7rem;
+  font-weight: 500;
+}
