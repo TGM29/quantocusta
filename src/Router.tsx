@@ -4,6 +4,7 @@ import LandingPage from './pages/LandingPage';
 import PricingCalculatorPage from './pages/PricingCalculatorPage';
 import ContentPage from './pages/ContentPage';
 import PackageCalculatorPage from './pages/PackageCalculatorPage';
+import PostPage from './pages/PostPage';
 
 export default function Router() {
   return (
@@ -12,7 +13,8 @@ export default function Router() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/calculator/pricing" element={<PricingCalculatorPage />} />
-        <Route path="/content" element={<ContentPage />} />
+        <Route path="/content/:slug" element={<PostPage />} />
+        <Route path="/content" element={<PostPage />} />
         <Route path="/calculator/packages" element={<PackageCalculatorPage />} />
       </Routes>
     </BrowserRouter>

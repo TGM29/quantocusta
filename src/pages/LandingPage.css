@@ -212,3 +212,115 @@
     font-size: 1.5rem;
   }
 }
+
+/* --- Post Layout --- */
+.post-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 2.5rem auto 0 auto;
+  width: 100%;
+  align-items: flex-start;
+}
+.post-main {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  flex: 2 1 0;
+  padding: 2.2rem 2vw 2.2rem 2vw;
+  min-width: 0;
+}
+.post-title {
+  color: #2563eb;
+  font-size: 2.1rem;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+  line-height: 1.15;
+}
+.post-meta {
+  color: #888;
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
+}
+.post-image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+  margin: 1.2rem 0 2rem 0;
+  box-shadow: 0 2px 16px rgba(37,99,235,0.10);
+  display: block;
+}
+.post-content {
+  color: #232323;
+  font-size: 1.13rem;
+  line-height: 1.7;
+}
+.post-content h2 {
+  font-size: 1.25rem;
+  color: #2563eb;
+  margin-top: 1.5rem;
+  margin-bottom: 0.7rem;
+}
+.post-content ul {
+  margin: 0 0 1.2rem 1.2rem;
+}
+.post-content blockquote {
+  font-style: italic;
+}
+.post-sidebar {
+  flex: 1 1 220px;
+  min-width: 200px;
+  max-width: 270px;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+}
+.sidebar-title {
+  color: #2563eb;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.1rem;
+}
+.sidebar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+.sidebar-post-card {
+  background: #f9fafb;
+  border-radius: 10px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  padding: 1rem 1.2rem;
+  text-decoration: none;
+  color: #232323;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: box-shadow 0.2s, transform 0.2s;
+  display: block;
+}
+.sidebar-post-card:hover {
+  box-shadow: 0 4px 32px rgba(37,99,235,0.13);
+  transform: translateY(-2px) scale(1.02);
+  color: #2563eb;
+}
+.sidebar-post-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+@media (max-width: 900px) {
+  .post-layout {
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 100vw;
+    padding: 0 0.5rem;
+  }
+  .post-main {
+    padding: 1.2rem 1vw 1.2rem 1vw;
+  }
+  .post-sidebar {
+    max-width: 100vw;
+    min-width: 0;
+    margin-left: 0;
+    margin-top: 2rem;
+  }
+}

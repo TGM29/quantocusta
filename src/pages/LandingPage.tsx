@@ -47,19 +47,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="lp-section">
-        <h2 className="lp-section-title">Futuro</h2>
-        <div className="lp-future-list">
-          <div className="lp-future-card">
-            <span className="lp-calc-icon">🚀</span>
-            <div>
-              <strong>Mais ferramentas</strong>
-              <p>Novidades em breve para facilitar ainda mais sua rotina!</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <footer className="lp-footer">
         <p>© {new Date().getFullYear()} FreelaTools. Todos os direitos reservados.</p>
       </footer>
