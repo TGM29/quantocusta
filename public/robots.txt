@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://freelatools.com.br/sitemap.xml

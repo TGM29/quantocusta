@@ -1,5 +1,6 @@
 import './LandingPage.css';
 import { useParams, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 interface PostMeta {
   title: string;
@@ -9,6 +10,7 @@ interface PostMeta {
   image: string;
   content: string;
   emoji?: string;
+  description?: string;
 }
 
 function parsePost(txt: string): PostMeta | null {
@@ -57,35 +59,54 @@ function renderMarkdownLinks(text: string) {
 export default function PostPage() {
   const { slug } = useParams();
   const post = posts.find(p => p.slug === slug) || posts[0];
+  const desc = post.description || post.content.split('\n')[0] || 'Confira o post completo!';
+  const canonical = `https://freelatools.com.br/content/${post.slug}`;
+  const image = post.image || 'https://pub-019a03b0b6e942f6a10a4bd626b74e2b.r2.dev/freelancer.png';
 
   return (
-    <div className="post-layout">
-      <main className="post-main">
-        <div style={{textAlign:'center', marginBottom:24}}>
-          <span style={{fontSize:'2.5rem', marginRight:10}}>{post.emoji || '📝'}</span>
-          <h1 className="post-title" style={{display:'inline', verticalAlign:'middle'}}>{post.title}</h1>
-        </div>
-        <div className="post-meta" style={{textAlign:'center'}}>{post.date} • {post.author}</div>
-        {post.image && <img src={post.image} alt="" className="post-image" />}
-        <div
-          className="post-content"
-          style={{ whiteSpace: 'pre-line' }}
-          dangerouslySetInnerHTML={{ __html: renderMarkdownLinks(post.content) }}
-        />
-      </main>
-      <aside className="post-sidebar post-sidebar-block">
-        <div className="sidebar-block" style={{textAlign:'center'}}>
-          <h3 className="sidebar-title" style={{textAlign:'center'}}>Outros posts</h3>
-          <ul className="sidebar-list" style={{alignItems:'center', display:'flex', flexDirection:'column', gap:'1.1rem'}}>
-            {posts.map(p => (
-              <li key={p.slug} style={{display:'flex', alignItems:'center', gap:8}}>
-                <span style={{fontSize:'1.3rem', marginRight:6}}>{p.emoji || '📝'}</span>
-                <Link to={`/content/${p.slug}`}>{p.title}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </aside>
-    </div>
+    <>
+      <Helmet>
+        <title>{post.title} | FreelaTools</title>
+        <meta name="description" content={desc} />
+        <link rel="canonical" href={canonical} />
+        <meta property="og:title" content={post.title + ' | FreelaTools'} />
+        <meta property="og:description" content={desc} />
+        <meta property="og:image" content={image} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={canonical} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title + ' | FreelaTools'} />
+        <meta name="twitter:description" content={desc} />
+        <meta name="twitter:image" content={image} />
+      </Helmet>
+      <div className="post-layout">
+        <main className="post-main">
+          <div style={{textAlign:'center', marginBottom:24}}>
+            <span style={{fontSize:'2.5rem', marginRight:10}}>{post.emoji || '📝'}</span>
+            <h1 className="post-title" style={{display:'inline', verticalAlign:'middle'}}>{post.title}</h1>
+          </div>
+          <div className="post-meta" style={{textAlign:'center'}}>{post.date} • {post.author}</div>
+          {post.image && <img src={post.image} alt="" className="post-image" />}
+          <div
+            className="post-content"
+            style={{ whiteSpace: 'pre-line' }}
+            dangerouslySetInnerHTML={{ __html: renderMarkdownLinks(post.content) }}
+          />
+        </main>
+        <aside className="post-sidebar post-sidebar-block">
+          <div className="sidebar-block" style={{textAlign:'center'}}>
+            <h3 className="sidebar-title" style={{textAlign:'center'}}>Outros posts</h3>
+            <ul className="sidebar-list" style={{alignItems:'center', display:'flex', flexDirection:'column', gap:'1.1rem'}}>
+              {posts.map(p => (
+                <li key={p.slug} style={{display:'flex', alignItems:'center', gap:8}}>
+                  <span style={{fontSize:'1.3rem', marginRight:6}}>{p.emoji || '📝'}</span>
+                  <Link to={`/content/${p.slug}`}>{p.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </>
   );
 }
