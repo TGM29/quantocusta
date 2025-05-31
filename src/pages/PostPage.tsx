@@ -27,10 +27,19 @@ const posts: PostMeta[] = Object.values(postFiles)
   .map((content) => parsePost(content as string))
   .filter(Boolean) as PostMeta[];
 
+// Função simples para converter links markdown para HTML <a>
+function renderMarkdownLinks(text: string) {
+  // [texto](url)
+  return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, label, url) => {
+    // Links internos: usar <a> normal, externos: target _blank
+    const isExternal = url.startsWith('http');
+    return `<a href="${url}"${isExternal ? ' target="_blank" rel="noopener"' : ''} style="color:#2563eb;font-weight:600">${label}</a>`;
+  });
+}
+
 export default function PostPage() {
   const { slug } = useParams();
   const post = posts.find(p => p.slug === slug) || posts[0];
-  const others = posts.filter(p => p.slug !== post.slug);
 
   return (
     <div className="post-layout">
@@ -38,34 +47,24 @@ export default function PostPage() {
         <h1 className="post-title">{post.title}</h1>
         <div className="post-meta">{post.date} • {post.author}</div>
         {post.image && <img src={post.image} alt="" className="post-image" />}
-        <div className="post-content" style={{ whiteSpace: 'pre-line' }}>
-          {post.content}
-        </div>
+        <div
+          className="post-content"
+          style={{ whiteSpace: 'pre-line' }}
+          dangerouslySetInnerHTML={{ __html: renderMarkdownLinks(post.content) }}
+        />
       </main>
-      <aside className="post-sidebar">
-        <h3 className="sidebar-title">Outros posts</h3>
-        <ul className="sidebar-list">
-          {others.map(p => (
-            <li key={p.slug}>
-              <Link to={`/content/${p.slug}`}>{p.title}</Link>
-            </li>
-          ))}
-        </ul>
+      <aside className="post-sidebar post-sidebar-block">
+        <div className="sidebar-block">
+          <h3 className="sidebar-title">Outros posts</h3>
+          <ul className="sidebar-list">
+            {posts.map(p => (
+              <li key={p.slug}>
+                <Link to={`/content/${p.slug}`}>{p.title}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </aside>
     </div>
   );
-}
-
-// Função simples para converter markdown básico para HTML
-function markdownToHtml(md: string) {
-  return md
-    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
-    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
-    .replace(/\*\*(.*?)\*\*/gim, '<b>$1</b>')
-    .replace(/\*([^*]+)\*/gim, '<i>$1</i>')
-    .replace(/\n\n/g, '<br/><br/>')
-    .replace(/\n/g, '<br/>')
-    .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" style="color:#2563eb;font-weight:600">$1</a>')
-    .replace(/^> (.*$)/gim, '<blockquote style="background:#e0e7ff;padding:1rem;border-radius:8px;margin:1.5rem 0;color:#222">$1</blockquote>');
 }

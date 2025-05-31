@@ -324,3 +324,11 @@
     margin-top: 2rem;
   }
 }
+
+.sidebar-block {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  padding: 1.5rem 1.2rem;
+  margin-bottom: 1.5rem;
+}
