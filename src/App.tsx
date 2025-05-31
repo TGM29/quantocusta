@@ -30,7 +30,6 @@ function App() {
   const [resultado, setResultado] = useState<number | null>(null)
 
   const profissaoSelecionada = PROFISSOES.find(p => p.nome === profissao)
-  const mostrarInputOutro = profissao === 'Outro'
 
   const handleProfissaoChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value
