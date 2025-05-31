@@ -1,5 +1,6 @@
 import './LandingPage.css';
 import logo from '../assets/freelatools-logo.png';
+import heroCharacter from '../assets/hero-character.png';
 // import heroImg from '../assets/freelatools-logo.png';
 
 // Tipagem para post
@@ -39,7 +40,9 @@ export default function LandingPage() {
           <img src={logo} alt="FreelaTools Logo" className="lp-logo minimal-logo" />
           <h1 className="lp-hero-title">O portal dos freelancers</h1>
           <p className="lp-hero-desc">Ferramentas para facilitar sua vida e valorizar seu trabalho.</p>
-          <a href="/#calculadoras" className="lp-hero-btn">Acessar Ferramentas</a>
+        </div>
+        <div className="lp-hero-img" style={{display:'flex',justifyContent:'center',alignItems:'center',width:'100%',marginTop:24}}>
+          <img src={heroCharacter} alt="Personagem FreelaTools" style={{maxWidth:320, width:'100%', borderRadius:24, boxShadow:'0 4px 32px rgba(37,99,235,0.13)'}} />
         </div>
       </section>
 
