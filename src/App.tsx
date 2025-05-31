@@ -96,69 +96,71 @@ function App() {
   }
 
   return (
-    <div className="desktop-wrapper">
-      <div className="container">
-        <h1 style={{ color: '#222' }}>Calculadora de Serviço</h1>
-        <form onSubmit={calcular} className="form">
-          <label>
-            1. Selecione o tipo de serviço
-            <select
-              value={profissao}
-              onChange={handleProfissaoChange}
-              style={{ background: '#fff', color: '#222', border: '1px solid #d1d5db', borderRadius: 6, padding: '0.5rem 0.7rem', fontSize: '1rem', marginTop: 4 }}
-            >
-              <option value="">Selecione...</option>
-              {PROFISSOES.map(p => (
-                <option key={p.nome} value={p.nome}>{p.nome}</option>
-              ))}
-            </select>
-          </label>
-          {profissaoSelecionada && profissaoSelecionada.nome !== 'Outro' && (
-            <div className="faixa-mercado">
-              <span>Média de mercado: </span>
-              <strong style={{ color: '#2563eb' }}>R$ {profissaoSelecionada.faixa} / hora</strong>
+    <>
+      {/* Painel de dicas para mobile, fora do desktop-wrapper */}
+      <MobilePanel />
+      <div className="desktop-wrapper">
+        <div className="container">
+          <h1 style={{ color: '#222' }}>Calculadora de Serviço</h1>
+          <form onSubmit={calcular} className="form">
+            <label>
+              1. Selecione o tipo de serviço
+              <select
+                value={profissao}
+                onChange={handleProfissaoChange}
+                style={{ background: '#fff', color: '#222', border: '1px solid #d1d5db', borderRadius: 6, padding: '0.5rem 0.7rem', fontSize: '1rem', marginTop: 4 }}
+              >
+                <option value="">Selecione...</option>
+                {PROFISSOES.map(p => (
+                  <option key={p.nome} value={p.nome}>{p.nome}</option>
+                ))}
+              </select>
+            </label>
+            {profissaoSelecionada && profissaoSelecionada.nome !== 'Outro' && (
+              <div className="faixa-mercado">
+                <span>Média de mercado: </span>
+                <strong style={{ color: '#2563eb' }}>R$ {profissaoSelecionada.faixa} / hora</strong>
+              </div>
+            )}
+            <label>
+              2. Defina quanto quer cobrar por hora
+              <input
+                type="number"
+                min="1"
+                value={valorHora}
+                onChange={e => setValorHora(e.target.value)}
+                placeholder="Ex: 80"
+                style={{ color: '#222' }}
+              />
+            </label>
+            <label>
+              3. Quantas horas estima gastar nesse serviço?
+              <input
+                type="number"
+                min="1"
+                value={horasServico}
+                onChange={e => setHorasServico(e.target.value)}
+                placeholder="Ex: 10"
+                style={{ color: '#222' }}
+              />
+            </label>
+            <button type="submit">Calcular</button>
+          </form>
+          {erro && <p className="erro">{erro}</p>}
+          {resultado !== null && !erro && (
+            <div className="resultado">
+              <h2 style={{ color: '#222' }}>Resultado</h2>
+              <p style={{ color: '#222' }}>
+                Valor total sugerido para o serviço: <br />
+                <span className="valor-hora">R$ {resultado.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+              </p>
             </div>
           )}
-          <label>
-            2. Defina quanto quer cobrar por hora
-            <input
-              type="number"
-              min="1"
-              value={valorHora}
-              onChange={e => setValorHora(e.target.value)}
-              placeholder="Ex: 80"
-              style={{ color: '#222' }}
-            />
-          </label>
-          <label>
-            3. Quantas horas estima gastar nesse serviço?
-            <input
-              type="number"
-              min="1"
-              value={horasServico}
-              onChange={e => setHorasServico(e.target.value)}
-              placeholder="Ex: 10"
-              style={{ color: '#222' }}
-            />
-          </label>
-          <button type="submit">Calcular</button>
-        </form>
-        {erro && <p className="erro">{erro}</p>}
-        {resultado !== null && !erro && (
-          <div className="resultado">
-            <h2 style={{ color: '#222' }}>Resultado</h2>
-            <p style={{ color: '#222' }}>
-              Valor total sugerido para o serviço: <br />
-              <span className="valor-hora">R$ {resultado.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-            </p>
-          </div>
-        )}
-        {/* Painel de dicas para mobile */}
-        <MobilePanel />
+        </div>
+        {/* Painel lateral só aparece em telas grandes */}
+        <SidePanel />
       </div>
-      {/* Painel lateral só aparece em telas grandes */}
-      <SidePanel />
-    </div>
+    </>
   )
 }
 
