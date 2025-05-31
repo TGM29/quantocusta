@@ -14,7 +14,7 @@ export default function NavBar() {
       </div>
       <ul className="navbar-links">
         <li className={location.pathname.startsWith('/calculator') ? 'active' : ''}>
-          <Link to="/calculator/pricing">Calculadoras</Link>
+          <Link to="/calculator/pricing">Ferramentas</Link>
         </li>
         <li className={location.pathname.startsWith('/content') ? 'active' : ''}>
           <Link to="/content">Conteúdo</Link>

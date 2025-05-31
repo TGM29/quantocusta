@@ -15,6 +15,7 @@
   right: 0;
   z-index: 100;
   overflow-x: auto;
+  border-radius: 0 0 18px 18px;
 }
 .navbar-logo {
   display: flex;
@@ -75,6 +76,7 @@
     gap: 0.5rem;
     width: 100vw;
     box-sizing: border-box;
+    border-radius: 0 0 18px 18px;
   }
   .navbar-logo {
     margin-bottom: 0.3rem;
