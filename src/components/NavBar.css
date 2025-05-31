@@ -9,9 +9,11 @@
   box-sizing: border-box;
   min-height: 64px;
   box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 10;
+  left: 0;
+  right: 0;
+  z-index: 100;
 }
 .navbar-logo {
   display: flex;
@@ -53,4 +55,8 @@
 .navbar-links li a:hover {
   color: #22c55e;
   border-bottom: 2px solid #22c55e;
+}
+
+.lp-root, .desktop-wrapper {
+  margin-top: 64px;
 }
