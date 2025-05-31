@@ -106,7 +106,7 @@ function App() {
   return (
     <div className="desktop-wrapper">
       <div className="container">
-        <h1 style={{ color: '#222' }}>Calculadora de Serviço</h1>
+        <h1 style={{ color: '#2563eb' }}>Quanto cobrar?</h1>
         <form onSubmit={calcular} className="form">
           <label>
             1. Selecione o tipo de serviço
