@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 const PROFISSOES = [
@@ -66,6 +66,14 @@ function App() {
   const [horasServico, setHorasServico] = useState('')
   const [erro, setErro] = useState('')
   const [resultado, setResultado] = useState<number | null>(null)
+  const [isDesktop, setIsDesktop] = useState(false)
+
+  useEffect(() => {
+    const checkDesktop = () => setIsDesktop(window.innerWidth >= 900)
+    checkDesktop()
+    window.addEventListener('resize', checkDesktop)
+    return () => window.removeEventListener('resize', checkDesktop)
+  }, [])
 
   const profissaoSelecionada = PROFISSOES.find(p => p.nome === profissao)
 
@@ -154,10 +162,10 @@ function App() {
           </div>
         )}
         {/* Painel de dicas para mobile, agora dentro do container e após o formulário */}
-        <MobilePanel />
+        {!isDesktop && <MobilePanel />}
       </div>
       {/* Painel lateral só aparece em telas grandes */}
-      <SidePanel />
+      {isDesktop && <SidePanel />}
     </div>
   )
 }
