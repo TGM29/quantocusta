@@ -1,6 +1,6 @@
 import './LandingPage.css';
-import logo from '../assets/freelatools-logo.png';
-import heroCharacter from '../assets/hero-character.png';
+// import logo from '../assets/freelatools-logo.png';
+// import heroCharacter from '../assets/hero-character.png';
 // import heroImg from '../assets/freelatools-logo.png';
 
 // Tipagem para post
@@ -32,17 +32,20 @@ const posts: PostMeta[] = Object.values(postFiles)
   .map((content) => parsePost(content as string))
   .filter(Boolean) as PostMeta[];
 
+const logoUrl = 'https://9f676c96cf9feb9650ceb18cb3a2f6b6.r2.cloudflarestorage.com/images/freelatools-logo.png';
+const heroCharacterUrl = 'https://9f676c96cf9feb9650ceb18cb3a2f6b6.r2.cloudflarestorage.com/images/hero-character.png';
+
 export default function LandingPage() {
   return (
     <div className="lp-root">
       <section className="lp-hero minimal-hero">
         <div className="lp-hero-content minimal-hero-content">
-          <img src={logo} alt="FreelaTools Logo" className="lp-logo minimal-logo" />
+          <img src={logoUrl} alt="FreelaTools Logo" className="lp-logo minimal-logo" />
           <h1 className="lp-hero-title">O portal dos freelancers</h1>
           <p className="lp-hero-desc">Ferramentas para facilitar sua vida e valorizar seu trabalho.</p>
         </div>
         <div className="lp-hero-img" style={{display:'flex',justifyContent:'center',alignItems:'center',width:'100%',marginTop:24}}>
-          <img src={heroCharacter} alt="Personagem FreelaTools" style={{maxWidth:320, width:'100%', borderRadius:24, boxShadow:'0 4px 32px rgba(37,99,235,0.13)'}} />
+          <img src={heroCharacterUrl} alt="Personagem FreelaTools" style={{maxWidth:320, width:'100%', borderRadius:24, boxShadow:'0 4px 32px rgba(37,99,235,0.13)'}} />
         </div>
       </section>
 
