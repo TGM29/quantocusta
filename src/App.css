@@ -4,7 +4,7 @@
   padding: 2rem;
   text-align: center;
   min-height: 100vh;
-  background: #f3f4f6;
+  background: #232323;
 }
 
 .logo {
@@ -58,7 +58,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f3f4f6;
+    min-height: 100vh;
+    min-width: 100vw;
+    background: linear-gradient(90deg, #232323 60%, #f3f4f6 100%);
   }
   .desktop-wrapper {
     display: flex;
@@ -72,7 +74,7 @@
   .container {
     max-width: 440px;
     margin: 0;
-    padding: 2.5rem 3.5rem 2rem 3.5rem;
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
     box-shadow: 0 4px 32px rgba(0,0,0,0.10);
   }
   .side-panel {
