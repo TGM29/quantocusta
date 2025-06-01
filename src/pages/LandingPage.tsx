@@ -51,8 +51,8 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="lp-section" id="calculadoras">
-          <h2 className="lp-section-title">Calculadoras</h2>
+        <section className="lp-section" id="ferramentas">
+          <h2 className="lp-section-title">Ferramentas</h2>
           <div className="lp-calc-list">
             <a href="/calculator/pricing" className="lp-calc-card">
               <span className="lp-calc-icon">💲</span>
@@ -71,7 +71,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="lp-section">
+        <section className="lp-section" id="conteudo">
           <h2 className="lp-section-title">Conteúdo</h2>
           <div className="lp-content-list">
             {posts.map((post) => {

@@ -13,11 +13,14 @@ export default function NavBar() {
         <span className="navbar-title">FreelaTools</span>
       </div>
       <ul className="navbar-links">
+        <li>
+          <a href="/">Home</a>
+        </li>
         <li className={location.pathname === '/' ? 'active' : ''}>
-          <Link to="/#calculadoras">Ferramentas</Link>
+          <a href="/#ferramentas">Ferramentas</a>
         </li>
         <li className={location.pathname.startsWith('/content') ? 'active' : ''}>
-          <Link to="/content">Conteúdo</Link>
+          <a href="/#conteudo">Conteúdo</a>
         </li>
       </ul>
     </nav>
