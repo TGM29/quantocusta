@@ -129,14 +129,17 @@ function App() {
           )}
           <label>
             2. Defina quanto quer cobrar por hora
-            <input
-              type="number"
-              min="1"
-              value={valorHora}
-              onChange={e => setValorHora(e.target.value)}
-              placeholder="Ex: 80"
-              style={{ color: '#222' }}
-            />
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <span style={{marginRight:4}}>R$</span>
+              <input
+                type="number"
+                min="1"
+                value={valorHora}
+                onChange={e => setValorHora(e.target.value)}
+                placeholder="Ex: 80"
+                style={{ color: '#222', flex: 1 }}
+              />
+            </div>
           </label>
           <label>
             3. Quantas horas estima gastar nesse serviço?
