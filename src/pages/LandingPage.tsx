@@ -1,5 +1,4 @@
 import './LandingPage.css';
-import { Helmet } from 'react-helmet-async';
 // import logo from '../assets/freelatools-logo.png';
 // import heroCharacter from '../assets/hero-character.png';
 // import heroImg from '../assets/freelatools-logo.png';
@@ -39,20 +38,6 @@ const heroCharacterUrl = 'https://pub-019a03b0b6e942f6a10a4bd626b74e2b.r2.dev/fr
 export default function LandingPage() {
   return (
     <>
-      <Helmet>
-        <title>FreelaTools - Calculadoras e Conteúdo para Freelancers</title>
-        <meta name="description" content="Ferramentas, calculadoras e conteúdo para facilitar a vida do freelancer. Descubra quanto cobrar, monte pacotes e aprenda mais!" />
-        <link rel="canonical" href="https://freelatools.com.br/" />
-        <meta property="og:title" content="FreelaTools - Calculadoras e Conteúdo para Freelancers" />
-        <meta property="og:description" content="Ferramentas, calculadoras e conteúdo para facilitar a vida do freelancer. Descubra quanto cobrar, monte pacotes e aprenda mais!" />
-        <meta property="og:image" content="https://pub-019a03b0b6e942f6a10a4bd626b74e2b.r2.dev/freelancer.png" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://freelatools.com.br/" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="FreelaTools - Calculadoras e Conteúdo para Freelancers" />
-        <meta name="twitter:description" content="Ferramentas, calculadoras e conteúdo para facilitar a vida do freelancer." />
-        <meta name="twitter:image" content="https://pub-019a03b0b6e942f6a10a4bd626b74e2b.r2.dev/freelancer.png" />
-      </Helmet>
       <div className="lp-root">
         <section className="lp-hero minimal-hero">
           <div className="lp-hero-flex">

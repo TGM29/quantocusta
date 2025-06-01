@@ -1,6 +1,5 @@
 import './LandingPage.css';
 import { useParams, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 
 interface PostMeta {
   title: string;
@@ -59,26 +58,9 @@ function renderMarkdownLinks(text: string) {
 export default function PostPage() {
   const { slug } = useParams();
   const post = posts.find(p => p.slug === slug) || posts[0];
-  const desc = post.description || post.content.split('\n')[0] || 'Confira o post completo!';
-  const canonical = `https://freelatools.com.br/content/${post.slug}`;
-  const image = post.image || 'https://pub-019a03b0b6e942f6a10a4bd626b74e2b.r2.dev/freelancer.png';
 
   return (
     <>
-      <Helmet>
-        <title>{post.title} | FreelaTools</title>
-        <meta name="description" content={desc} />
-        <link rel="canonical" href={canonical} />
-        <meta property="og:title" content={post.title + ' | FreelaTools'} />
-        <meta property="og:description" content={desc} />
-        <meta property="og:image" content={image} />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={canonical} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post.title + ' | FreelaTools'} />
-        <meta name="twitter:description" content={desc} />
-        <meta name="twitter:image" content={image} />
-      </Helmet>
       <div className="post-layout">
         <main className="post-main">
           <div style={{textAlign:'center', marginBottom:24}}>
