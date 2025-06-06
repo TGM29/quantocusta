@@ -1,10 +1,15 @@
 body, html {
   overflow-x: hidden !important;
+  width: 100vw;
   max-width: 100vw;
+  box-sizing: border-box;
 }
 .lp-root, .lp-hero, .minimal-hero, .lp-section {
-  max-width: 100vw !important;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 @media (max-width: 900px) {
   .lp-root, .lp-hero, .minimal-hero, .lp-section {
@@ -24,7 +29,6 @@ body, html {
   background: #232323;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: flex-start;
   padding: 0 0 2rem 0;
   box-sizing: border-box;
@@ -60,6 +64,7 @@ body, html {
   align-items: flex-start;
   justify-content: center;
   min-width: 0;
+  box-sizing: border-box;
 }
 .lp-hero-title {
   font-size: 2.7rem;
@@ -98,6 +103,7 @@ body, html {
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 }
 .lp-hero-img img {
   width: 100%;
@@ -405,12 +411,22 @@ body, html {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  max-width: 100%;
   gap: 2.5rem;
+  box-sizing: border-box;
 }
 @media (max-width: 900px) {
   .lp-hero-flex {
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .lp-hero-content, .lp-hero-img {
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
