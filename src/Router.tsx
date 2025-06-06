@@ -6,6 +6,7 @@ import PricingCalculatorPage from './pages/PricingCalculatorPage';
 import PackageCalculatorPage from './pages/PackageCalculatorPage';
 import PostPage from './pages/PostPage';
 import ProjectHourlyCalculatorPage from './pages/ProjectHourlyCalculatorPage';
+import VacationReserveCalculatorPage from './pages/VacationReserveCalculatorPage';
 
 export default function Router() {
   return (
@@ -18,6 +19,7 @@ export default function Router() {
         <Route path="/content" element={<PostPage />} />
         <Route path="/calculator/packages" element={<PackageCalculatorPage />} />
         <Route path="/calculator/project-hourly" element={<ProjectHourlyCalculatorPage />} />
+        <Route path="/calculator/vacation-reserve" element={<VacationReserveCalculatorPage />} />
       </Routes>
     </BrowserRouter>
   );
