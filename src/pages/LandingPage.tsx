@@ -68,6 +68,13 @@ export default function LandingPage() {
                 <p>Monte 3 opções de proposta para seu cliente.</p>
               </div>
             </a>
+            <a href="/ProjectHourlyCalculatorPage" className="lp-calc-card">
+              <span className="lp-calc-icon">⏱️</span>
+              <div>
+                <strong>Valor Real por Hora</strong>
+                <p>Calcule quanto realmente ganhou por hora em um projeto.</p>
+              </div>
+            </a>
           </div>
         </section>
 
