@@ -1,0 +1,25 @@
+---
+title: Você está ganhando menos do que imagina?
+date: 1 junho 2025
+author: Equipe FreelaTools
+slug: tempo-real-em-projetos
+image: https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80
+emoji: ⏱️
+description: Descubra se você está ganhando menos do que imagina ao calcular o tempo real investido em cada projeto.
+---
+Você cobra R$1.000 por um job, acha que tá tudo certo… mas no fim das contas, gastou mais tempo em reunião, troca de e-mails e alterações do que no trabalho em si. Já aconteceu com você?
+
+## O tempo invisível que ninguém cobra
+- Reuniões longas com o cliente.
+- Ajustes fora do escopo.
+- Espera por aprovação.
+- Conversas no WhatsApp em horário fora do expediente.
+
+Tudo isso consome seu tempo — e raramente entra no cálculo.
+
+## Como descobrir se o job valeu a pena?
+Some todas as horas reais gastas, não só as de execução. Depois, divida o valor total recebido por esse total de horas. Esse é o **seu ganho real por hora**.
+
+> Dica: anote por uma semana o tempo gasto em cada tarefa e você pode se surpreender com o resultado.
+
+Use nossa [calculadora de tempo real investido](/calculator/tempo-real) para saber quanto realmente está ganhando por hora em cada job.
