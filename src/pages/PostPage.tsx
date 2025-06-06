@@ -74,6 +74,59 @@ export default function PostPage() {
             style={{ whiteSpace: 'pre-line' }}
             dangerouslySetInnerHTML={{ __html: renderMarkdownLinks(post.content) }}
           />
+          {/* Botão de CTA para a ferramenta correspondente */}
+          {(() => {
+            const ctas: Record<string, { url: string, label: string }> = {
+              'como-calcular-preco-hora-freelancer': {
+                url: '/calculator/pricing',
+                label: 'Acessar Calculadora de Preço por Hora',
+              },
+              'quanto-cobrar-por-um-servico': {
+                url: '/calculator/pricing',
+                label: 'Acessar Calculadora de Quanto Cobrar',
+              },
+              'como-cobrar-mais-com-pacotes': {
+                url: '/calculator/packages',
+                label: 'Monte seus Pacotes',
+              },
+              'tempo-real-em-projetos': {
+                url: '/calculator/project-hourly',
+                label: 'Calcule seu Valor Real por Hora',
+              },
+              'como-tirar-ferias-sendo-freelancer': {
+                url: '/calculator/vacation-reserve',
+                label: 'Calcule sua Reserva para Férias',
+              },
+              'reserva-emergencia-para-freelancer': {
+                url: '/calculator/vacation-reserve',
+                label: 'Calcule sua Reserva de Emergência',
+              },
+            };
+            const cta = ctas[post.slug];
+            if (!cta) return null;
+            return (
+              <div style={{ marginTop: 32, textAlign: 'center' }}>
+                <a href={cta.url} style={{
+                  display: 'inline-block',
+                  background: '#2563eb',
+                  color: '#fff',
+                  fontWeight: 700,
+                  fontSize: '1.1rem',
+                  borderRadius: 8,
+                  padding: '0.9rem 2.2rem',
+                  textDecoration: 'none',
+                  boxShadow: '0 2px 8px rgba(37,99,235,0.10)',
+                  marginTop: 12,
+                  transition: 'background 0.2s, transform 0.2s',
+                }}
+                onMouseOver={e => (e.currentTarget.style.background = '#1746a0')}
+                onMouseOut={e => (e.currentTarget.style.background = '#2563eb')}
+                >
+                  {cta.label}
+                </a>
+              </div>
+            );
+          })()}
         </main>
         <aside className="post-sidebar post-sidebar-block">
           <div className="sidebar-block" style={{textAlign:'center'}}>
