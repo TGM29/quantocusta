@@ -19,4 +19,4 @@ Some seus custos fixos mensais + quanto você quer lucrar. Depois, divida pelo n
 
 > Dica: Sempre inclua tempo de reuniões, revisões e comunicação no total de horas — isso faz diferença no fim do mês!
 
-Use nossa [calculadora de preço por hora](/calculator/hora) e descubra agora quanto você deveria cobrar.
+Use nossa [calculadora de tempo real investido](/calculator/project-hourly) para saber quanto realmente está ganhando por hora em cada job.
