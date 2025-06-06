@@ -84,7 +84,7 @@ export default function LandingPage() {
             {posts.map((post) => {
               const desc = post.description || 'Confira o post completo!';
               return (
-                <a key={post.slug} href={post.slug === 'tempo-real-em-projetos' ? '/calculator/project-hourly' : `/content/${post.slug}`} className="lp-content-card">
+                <a key={post.slug} href={`/content/${post.slug}`} className="lp-content-card">
                   <span className="lp-calc-icon" style={{fontSize:'2.2rem'}}>{post.emoji || '📝'}</span>
                   <div>
                     <strong>{post.title}</strong>
