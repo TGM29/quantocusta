@@ -78,18 +78,6 @@ export default function ProjectHourlyCalculatorPage() {
     }
     const valuePerHour = value / totalHours;
     let insight = '';
-    if (idealRate) {
-      const ideal = parseFloat(idealRate.replace(/[^\d.,]/g, '').replace(',', '.'));
-      if (ideal > 0) {
-        const diff = valuePerHour - ideal;
-        const percent = (valuePerHour / ideal) * 100 - 100;
-        if (diff < 0) {
-          insight = `Seu ganho real foi ${Math.abs(percent).toFixed(1)}% menor que o ideal.`;
-        } else {
-          insight = `Seu ganho real foi ${percent.toFixed(1)}% maior que o ideal!`;
-        }
-      }
-    }
     setResult({ totalHours, valuePerHour, insight });
   }
 
