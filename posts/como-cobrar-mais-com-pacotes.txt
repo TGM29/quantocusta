@@ -18,4 +18,4 @@ Monte três opções: **Básico** (essencial), **Intermediário** (valor padrão
 
 > Dica: A maioria dos clientes escolhe o intermediário, mas muitos vão para o premium se o valor percebido for claro!
 
-Use nossa [calculadora de pacotes](/calculator/packages) para gerar suas opções em segundos.
+Use nossa [calculadora de tempo real investido](/calculator/project-hourly) para saber quanto realmente está ganhando por hora em cada job.

@@ -22,4 +22,4 @@ Some todas as horas reais gastas, não só as de execução. Depois, divida o va
 
 > Dica: anote por uma semana o tempo gasto em cada tarefa e você pode se surpreender com o resultado.
 
-Use nossa [calculadora de tempo real investido](/calculator/tempo-real) para saber quanto realmente está ganhando por hora em cada job.
+Use nossa [calculadora de tempo real investido](/calculator/project-hourly) para saber quanto realmente está ganhando por hora em cada job.
