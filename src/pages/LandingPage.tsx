@@ -75,6 +75,13 @@ export default function LandingPage() {
                 <p>Calcule quanto realmente ganhou por hora em um projeto.</p>
               </div>
             </a>
+            <a href="/calculator/vacation-reserve" className="lp-calc-card">
+              <span className="lp-calc-icon">🏖️</span>
+              <div>
+                <strong>Reserva para Férias</strong>
+                <p>Descubra quanto guardar para tirar férias tranquilamente.</p>
+              </div>
+            </a>
           </div>
         </section>
 
