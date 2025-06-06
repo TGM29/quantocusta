@@ -94,7 +94,7 @@ export default function ProjectHourlyCalculatorPage() {
   }
 
   return (
-    <div className="desktop-wrapper">
+    <div className="desktop-wrapper" style={{marginTop: '64px'}}>
       <div className="container">
         <h1 style={{ color: '#2563eb' }}>Tempo real investido</h1>
         <form onSubmit={handleCalculate} className="form">
@@ -109,67 +109,13 @@ export default function ProjectHourlyCalculatorPage() {
             />
           </label>
           <label>
-            Tempo de execução (horas)
+            Total de horas gastas no projeto
             <input
               type="number"
               min="0"
               value={fields.execution}
               onChange={e => handleChange('execution', e.target.value)}
               required
-            />
-          </label>
-          <label>
-            Reuniões com o cliente (horas)
-            <input
-              type="number"
-              min="0"
-              value={fields.meetings}
-              onChange={e => handleChange('meetings', e.target.value)}
-            />
-          </label>
-          <label>
-            Trocas de e-mails e mensagens (horas)
-            <input
-              type="number"
-              min="0"
-              value={fields.messages}
-              onChange={e => handleChange('messages', e.target.value)}
-            />
-          </label>
-          <label>
-            Revisões e alterações (horas)
-            <input
-              type="number"
-              min="0"
-              value={fields.revisions}
-              onChange={e => handleChange('revisions', e.target.value)}
-            />
-          </label>
-          <label>
-            Espera ou pausas obrigatórias (horas)
-            <input
-              type="number"
-              min="0"
-              value={fields.waiting}
-              onChange={e => handleChange('waiting', e.target.value)}
-            />
-          </label>
-          <label>
-            Outros (campo livre, horas)
-            <input
-              type="number"
-              min="0"
-              value={fields.other}
-              onChange={e => handleChange('other', e.target.value)}
-            />
-          </label>
-          <label>
-            Valor ideal/hora (opcional)
-            <input
-              type="text"
-              placeholder="Ex: R$ 80"
-              value={idealRate}
-              onChange={e => setIdealRate(e.target.value)}
             />
           </label>
           <button type="submit">Calcular</button>
