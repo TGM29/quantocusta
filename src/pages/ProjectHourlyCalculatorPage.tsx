@@ -46,7 +46,7 @@ export default function ProjectHourlyCalculatorPage() {
     waiting: '',
     other: '',
   });
-  const [idealRate, setIdealRate] = useState('');
+
   const [erro, setErro] = useState('');
   const [result, setResult] = useState<null | {
     totalHours: number;
